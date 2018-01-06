@@ -14,10 +14,19 @@ _start:       ;label of entry point
   mov eax,4   ; link sys_write
   int 0x80    ; call the kernel
 
+  mov edx,new_len
+  mov ecx,new_ln
+  mov ebx,1
+  mov eax,4
+  int 0x80
+
   mov eax,1   ;setup sys_exit
   int 0x80    ; call the kernel
 
 section .data
-msg db 'Displaying 9 stars', 0xa; a message
+msg db 'Displaying 9 stars', 0xA; a message
 len equ $ - msg ; get the length of the message into len
 s2 times 9 db "*"
+
+new_ln db 0xA
+new_len equ $ - new_ln
