@@ -12,5 +12,5 @@ _start:               ;label of the entry point
   int  0x80           ; call the kernel [execute?]
 
 section .data
-msg db 'Hello, world agin?!', 0xa  ; string to be printed
+msg db 'Hello, world again?!', 0xa  ; string to be printed
 len equ $ - msg              ; len equals $ minus message length
